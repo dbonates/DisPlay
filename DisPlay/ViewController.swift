@@ -131,9 +131,14 @@ class ViewController: UIViewController {
     }
     
     @objc func addTake(_ tapGest: UITapGestureRecognizer) {
+
         let point = tapGest.location(in: view)
         let increment = point.x > view.bounds.width/2 ? 1 : -1
-        UserDefaults.standard.set(takeNumber + increment, forKey: "currentTakeNumber")
+        var result = takeNumber + increment
+        if result < 0 {
+            result = 0
+        }
+        UserDefaults.standard.set(result, forKey: "currentTakeNumber")
         UserDefaults.standard.synchronize()
         setupDisplay(true)
     }
