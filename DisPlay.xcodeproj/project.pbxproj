@@ -13,6 +13,8 @@
 		37D181E8274FC21E00A1E510 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37D181E6274FC21E00A1E510 /* Main.storyboard */; };
 		37D181EA274FC21F00A1E510 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37D181E9274FC21F00A1E510 /* Assets.xcassets */; };
 		37D181ED274FC21F00A1E510 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37D181EB274FC21F00A1E510 /* LaunchScreen.storyboard */; };
+		37D181F9274FC5C300A1E510 /* trim.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 37D181F8274FC5C300A1E510 /* trim.ttf */; };
+		37D18200274FD50500A1E510 /* BebasNeue-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 37D181FF274FD50500A1E510 /* BebasNeue-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		37D181E9274FC21F00A1E510 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37D181EC274FC21F00A1E510 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		37D181EE274FC21F00A1E510 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37D181F8274FC5C300A1E510 /* trim.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = trim.ttf; sourceTree = "<group>"; };
+		37D181FF274FD50500A1E510 /* BebasNeue-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BebasNeue-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,11 +64,21 @@
 				37D181E2274FC21E00A1E510 /* SceneDelegate.swift */,
 				37D181E4274FC21E00A1E510 /* ViewController.swift */,
 				37D181E6274FC21E00A1E510 /* Main.storyboard */,
+				37D181FC274FC5D500A1E510 /* New Group */,
 				37D181E9274FC21F00A1E510 /* Assets.xcassets */,
 				37D181EB274FC21F00A1E510 /* LaunchScreen.storyboard */,
 				37D181EE274FC21F00A1E510 /* Info.plist */,
 			);
 			path = DisPlay;
+			sourceTree = "<group>";
+		};
+		37D181FC274FC5D500A1E510 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				37D181FF274FD50500A1E510 /* BebasNeue-Bold.ttf */,
+				37D181F8274FC5C300A1E510 /* trim.ttf */,
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,8 +139,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37D181F9274FC5C300A1E510 /* trim.ttf in Resources */,
 				37D181ED274FC21F00A1E510 /* LaunchScreen.storyboard in Resources */,
 				37D181EA274FC21F00A1E510 /* Assets.xcassets in Resources */,
+				37D18200274FD50500A1E510 /* BebasNeue-Bold.ttf in Resources */,
 				37D181E8274FC21E00A1E510 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
