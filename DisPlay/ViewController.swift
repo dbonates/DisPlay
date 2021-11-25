@@ -25,7 +25,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        setupFonts()
         setupDisplay()
         setupGestures()
         navigationController?.navigationBar.barStyle = .default
@@ -38,13 +37,6 @@ class ViewController: UIViewController {
                 );
     }
     
-    func setupFonts() {
-        //TrimPosterWebCondensed
-//        for family in UIFont.familyNames.sorted() {
-//            let names = UIFont.fontNames(forFamilyName: family)
-//            print("Family: \(family) Font names: \(names)")
-//        }
-    }
     
     func setupDisplay(_ changingTakeOnly: Bool = false) {
         
@@ -102,14 +94,7 @@ class ViewController: UIViewController {
         longPressGest.minimumPressDuration = 1
         view.addGestureRecognizer(longPressGest)
     }
-    
-//    @objc func switchFont(_ swipeDownGest: UISwipeGestureRecognizer) {
-//        currentFont += 1
-//        if currentFont >= fonts.count {
-//            currentFont = 0
-//        }
-//        setupDisplay()
-//    }
+
     
     @objc func switchTheme(_ swipeTopGest: UISwipeGestureRecognizer) {
         UserDefaults.standard.set(!darkMode, forKey: "currentTheme")
