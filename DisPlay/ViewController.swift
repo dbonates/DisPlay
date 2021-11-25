@@ -18,7 +18,9 @@ class ViewController: UIViewController {
         return UserDefaults.standard.integer(forKey: "currentTakeNumber")
     }
 
-    var darkMode = true
+    var darkMode: Bool {
+        return UserDefaults.standard.bool(forKey: "currentTheme")
+    }
     
     override func viewDidLoad() {
         
@@ -88,7 +90,7 @@ class ViewController: UIViewController {
         let tappedGest = UITapGestureRecognizer(target: self, action: #selector(addTake))
         view.addGestureRecognizer(tappedGest)
 
-        let swipeDownGest = UISwipeGestureRecognizer(target: self, action: #selector(switchFont))
+        let swipeDownGest = UISwipeGestureRecognizer(target: self, action: #selector(switchTheme))
         swipeDownGest.direction = .down
         view.addGestureRecognizer(swipeDownGest)
         
@@ -97,25 +99,34 @@ class ViewController: UIViewController {
         view.addGestureRecognizer(swipeTopGest)
         
         let longPressGest = UILongPressGestureRecognizer(target: self, action: #selector(reset))
-        longPressGest.minimumPressDuration = 1.5
+        longPressGest.minimumPressDuration = 1
         view.addGestureRecognizer(longPressGest)
     }
     
-    @objc func switchFont(_ swipeDownGest: UISwipeGestureRecognizer) {
-        currentFont += 1
-        if currentFont >= fonts.count {
-            currentFont = 0
-        }
-        setupDisplay()
-    }
+//    @objc func switchFont(_ swipeDownGest: UISwipeGestureRecognizer) {
+//        currentFont += 1
+//        if currentFont >= fonts.count {
+//            currentFont = 0
+//        }
+//        setupDisplay()
+//    }
     
     @objc func switchTheme(_ swipeTopGest: UISwipeGestureRecognizer) {
-        darkMode = !darkMode
+        UserDefaults.standard.set(!darkMode, forKey: "currentTheme")
+        UserDefaults.standard.synchronize()
         setupDisplay()
     }
     
     @objc func reset(_ longPressGest: UILongPressGestureRecognizer) {
         UserDefaults.standard.set(0, forKey: "currentTakeNumber")
+        let animation = CABasicAnimation(keyPath: "position")
+        animation.duration = 0.07
+        animation.repeatCount = 1
+        animation.autoreverses = true
+        animation.fromValue = NSValue(cgPoint: CGPoint(x: takeLbl.center.x - 10, y: takeLbl.center.y))
+        animation.toValue = NSValue(cgPoint: CGPoint(x: takeLbl.center.x + 10, y: takeLbl.center.y))
+
+        takeLbl.layer.add(animation, forKey: "position")
         setupDisplay()
     }
     
@@ -123,6 +134,7 @@ class ViewController: UIViewController {
         let point = tapGest.location(in: view)
         let increment = point.x > view.bounds.width/2 ? 1 : -1
         UserDefaults.standard.set(takeNumber + increment, forKey: "currentTakeNumber")
+        UserDefaults.standard.synchronize()
         setupDisplay(true)
     }
 
